@@ -33,6 +33,7 @@
 
         <!-- HTML -->
         <div id="container">
+            <div id = "container-heading">Loading...</div>
             <div id = "container-visual">Loading...</div>
             <div id = "container-model">Loading...</div>
             <div id = "container-tabulated">Loading...</div>
@@ -51,7 +52,23 @@
             
         <!-- JAVASCRIPT -->
         <script type = "text/javascript">
-            var ContainerView = Backbone.View.extend({})
+            var ContainerHeadingView = Backbone.View.extend({
+                // el - stands for element. Every view has an element associated with HTML content, will be rendered. 
+                el: '#container-heading',
+                
+                // It's the first function called when this view is instantiated.
+                initialize: function() {
+                this.render(); 
+                },
+                
+                // $el - it's a cached jQuery object (el), in which you can use jQuery functions to push content.
+                
+                //Like the Hello TutorialsPoint in this case.
+                render: function() {
+                this.$el.html("<h1>Container Heading</h1><br><table style='width:100%'><tr><th>Firstname</th><th>Lastname</th><th>Age</th></tr><tr><td>Jill</td><td>Smith</td><td>50</td></tr><tr><td>Eve</td><td>Jackson</td><td>94</td></tr></table>");
+                }
+            });
+
             var ContainerVisualView = Backbone.View.extend ({
                 // el - stands for element. Every view has an element associated with HTML content, will be rendered. 
                 el: '#container-visual',
@@ -102,7 +119,7 @@
                 this.$el.html("<h1>Container Tabulated View</h1><br><table style='width:100%'><tr><th>Firstname</th><th>Lastname</th><th>Age</th></tr><tr><td>Jill</td><td>Smith</td><td>50</td></tr><tr><td>Eve</td><td>Jackson</td><td>94</td></tr></table>");
                 }
             });
-
+            var containerHeadingView = new ContainerHeadingView();
             var containerVisualView = new ContainerVisualView();
             var containerModelView = new ContainerModelView();
             var containerTabulatedView = new ContainerTabulatedView();
