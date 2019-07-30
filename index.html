@@ -52,7 +52,7 @@
             
         <!-- JAVASCRIPT -->
         <script type = "text/javascript">
-            var ContainerHeadingView = Backbone.View.extend({
+            const ContainerHeadingView = Backbone.View.extend({
                 // el - stands for element. Every view has an element associated with HTML content, will be rendered. 
                 el: '#container-heading',
                 
@@ -69,7 +69,7 @@
                 }
             });
 
-            var ContainerVisualView = Backbone.View.extend ({
+            const ContainerVisualView = Backbone.View.extend ({
                 // el - stands for element. Every view has an element associated with HTML content, will be rendered. 
                 el: '#container-visual',
                 
@@ -86,7 +86,7 @@
                 }
             });
 
-            var ContainerModelView = Backbone.View.extend ({
+            const ContainerModelView = Backbone.View.extend ({
                 // el - stands for element. Every view has an element associated with HTML content, will be rendered. 
                 el: '#container-model',
                 
@@ -103,7 +103,7 @@
                 }
             });
 
-            var ContainerTabulatedView = Backbone.View.extend ({
+            const ContainerTabulatedView = Backbone.View.extend ({
                 // el - stands for element. Every view has an element associated with HTML content, will be rendered. 
                 el: '#container-tabulated',
                 
@@ -119,10 +119,10 @@
                 this.$el.html("<h1>Container Tabulated View</h1><br><table style='width:100%'><tr><th>Firstname</th><th>Lastname</th><th>Age</th></tr><tr><td>Jill</td><td>Smith</td><td>50</td></tr><tr><td>Eve</td><td>Jackson</td><td>94</td></tr></table>");
                 }
             });
-            var containerHeadingView = new ContainerHeadingView();
-            var containerVisualView = new ContainerVisualView();
-            var containerModelView = new ContainerModelView();
-            var containerTabulatedView = new ContainerTabulatedView();
+            const containerHeadingView = new ContainerHeadingView();
+            const containerVisualView = new ContainerVisualView();
+            const containerModelView = new ContainerModelView();
+            const containerTabulatedView = new ContainerTabulatedView();
 
 
         </script>
