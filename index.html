@@ -11,6 +11,10 @@
         .content-layout {
             background-color: darkgrey;
         }
+        .content {
+            width: 50%;
+            float: left;
+        }
    
       </style>
    </head>
@@ -20,15 +24,18 @@
         <!-- HTML -->
         <div id="container">
             <div class="heading-layout">
-                <div id = "container-heading">Loading...</div>
+                <div class="layout-top">
+                    <div id = "container-heading">Loading...</div>
+                </div>
             </div>
             <hr>
             <div class="content-layout">
-                <div class="content layout-left" style="width:50%;float:left;">
+                <div class="content layout-left">
                     <div id = "container-visual">Loading...</div>
                 </div>
-                <div class="content layout-right" style="width:50%;float:left;">
+                <div class="content layout-right">
                     <div id = "container-model">Loading...</div>
+                    <br><br>
                     <div id = "container-tabulated">Loading...</div>
                 </div>
             </div>
@@ -77,7 +84,7 @@
                 
                 //Like the Hello TutorialsPoint in this case.
                 render: function() {
-                this.$el.html("<h1>Shells</h1><br>");
+                this.$el.html("<h3>Visualized Results</h3><br>");
                 }
             });
 
@@ -94,7 +101,7 @@
                 
                 //Like the Hello TutorialsPoint in this case.
                 render: function() {
-                this.$el.html("<h1>Container Model View</h1><br><table><tr><th>Firstname</th></tr><tr><td>Jill</td></tr><tr><td>Eve</td></tr></table>");
+                this.$el.html("<h3>Model Paramters</h3><br><table><tr><th></th></tr><tr><td>Iterations Requested: 20</td></tr><tr><td>Iterations Executed: 20</td></tr></table>");
                 }
             });
 
@@ -111,7 +118,7 @@
                 
                 //Like the Hello TutorialsPoint in this case.
                 render: function() {
-                this.$el.html("<h1>Container Tabulated View</h1><br><table><tr><th>Firstname</th><th>Lastname</th><th>Age</th></tr><tr><td>Jill</td><td>Smith</td><td>50</td></tr><tr><td>Eve</td><td>Jackson</td><td>94</td></tr></table>");
+                this.$el.html("<h3>Tabulated Results</h3><br><table><tr><th></th><th>Rad. Temp</th><th>Ws</th></tr><tr><td>Shell 1</td><td>11036.7</td><td>0.471673</td></tr><tr><td>Shell 2</td><td>11191.2</td><td>0.355186</td></tr></table>");
                 }
             });
 
