@@ -17,6 +17,7 @@
         }
    
       </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.6.6/rickshaw.min.css" />
    </head>
    
    <body>
@@ -51,7 +52,49 @@
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone.js"
             type = "text/javascript"></script>
 
-            
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"
+            type = "text/javascript"></script>
+
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.6.6/rickshaw.min.js"
+            type = "text/javascript"></script>
+        
+        <!-- template for visual table -->
+        <script type="text/template" id="visualized-table">
+            <h3>Visualized Results</h3><br>
+        </script>
+        
+        <!-- template for tabulated results -->
+        <script type="text/template" id="tabulated-table">
+            <h3>Tabulated Results</h3><br>
+            <table>
+                <tr>
+                    <th></th><th>Rad. Temp</th><th>Ws</th>
+                </tr>
+                <tr>
+                    <td>Shell 1</td><td>11036.7</td><td>0.471673</td>
+                </tr>
+                <tr>
+                    <td>Shell 2</td><td>11191.2</td><td>0.355186</td>
+                </tr>
+            </table>
+        </script>
+
+        <!-- template for model parameters -->
+        <script type="text/template" id="model-table">
+            <h3>Model Paramters</h3><br>
+            <table>
+                <tr>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Iterations Requested: 20</td>
+                </tr>
+                <tr>
+                    <td>Iterations Executed: 20</td>
+                </tr>
+            </table>
+        </script>
+
         <!-- JAVASCRIPT -->
         <script type = "text/javascript">
             const ContainerHeadingView = Backbone.View.extend({
@@ -67,13 +110,15 @@
                 
                 //Like the Hello TutorialsPoint in this case.
                 render: function() {
-                this.$el.html("<h1>Container Heading</h1><br><table><tr></tr></table>");
+                this.$el.html("<h1>Container Heading</h1><br>");
                 }
             });
 
             const ContainerVisualView = Backbone.View.extend ({
                 // el - stands for element. Every view has an element associated with HTML content, will be rendered. 
                 el: '#container-visual',
+
+                template: _.template($('#visual-table').html()), // use the specified template 
                 
                 // It's the first function called when this view is instantiated.
                 initialize: function() {
@@ -84,13 +129,15 @@
                 
                 //Like the Hello TutorialsPoint in this case.
                 render: function() {
-                this.$el.html("<h3>Visualized Results</h3><br>");
+                this.$el.html(this.template());
                 }
             });
 
             const ContainerModelView = Backbone.View.extend ({
                 // el - stands for element. Every view has an element associated with HTML content, will be rendered. 
                 el: '#container-model',
+
+                template: _.template($('#model-table').html()), // use the specified template
                 
                 // It's the first function called when this view is instantiated.
                 initialize: function() {
@@ -101,13 +148,15 @@
                 
                 //Like the Hello TutorialsPoint in this case.
                 render: function() {
-                this.$el.html("<h3>Model Paramters</h3><br><table><tr><th></th></tr><tr><td>Iterations Requested: 20</td></tr><tr><td>Iterations Executed: 20</td></tr></table>");
+                this.$el.html(this.template());
                 }
             });
 
             const ContainerTabulatedView = Backbone.View.extend ({
                 // el - stands for element. Every view has an element associated with HTML content, will be rendered. 
                 el: '#container-tabulated',
+
+                template: _.template($('#tabulated-table').html()), // use the specified template
                 
                 // It's the first function called when this view is instantiated.
                 initialize: function() {
@@ -118,7 +167,7 @@
                 
                 //Like the Hello TutorialsPoint in this case.
                 render: function() {
-                this.$el.html("<h3>Tabulated Results</h3><br><table><tr><th></th><th>Rad. Temp</th><th>Ws</th></tr><tr><td>Shell 1</td><td>11036.7</td><td>0.471673</td></tr><tr><td>Shell 2</td><td>11191.2</td><td>0.355186</td></tr></table>");
+                this.$el.html(this.template());
                 }
             });
 
